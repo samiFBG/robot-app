@@ -4,6 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app">
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="145dp"
+        android:layout_height="329dp"
+
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SeekBar
+            android:id="@+id/mgauche"
+            android:layout_width="295dp"
+            android:layout_height="417dp"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:rotation="270" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="145dp"
+        android:layout_height="329dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <SeekBar
+            android:id="@+id/mdroit"
+            android:layout_width="300dp"
+            android:layout_height="434dp"
+            android:layout_gravity="center"
+            android:rotation="270" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/pgauche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:text="puissancemoteurgauche"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/pdroit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="puissancemoteurdroit"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pourcentagebatterie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/revgauche"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:onClick="revgauche"
+        android:text="REV"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+
+    <Button
+        android:id="@+id/revdroit"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:onClick="revdroit"
+        android:text="REV"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout2"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
