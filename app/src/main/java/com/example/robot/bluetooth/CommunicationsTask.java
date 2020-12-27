@@ -15,6 +15,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,13 +52,14 @@ public class CommunicationsTask extends AsyncTask<Void, Void, Void> {
             if (mBluetoothSocket == null || !mConnected) {
                 mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
                 BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(mAddress);//connects to the device's address and checks if it's available
-                mBluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(device.getUuids()[0].getUuid());//create a RFCOMM (SPP) connection
+                mBluetoothSocket = device.createRfcommSocketToServiceRecord(device.getUuids()[0].getUuid());//create a RFCOMM (SPP) connection
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 mBluetoothSocket.connect();//start connection
             }
         }
         catch (IOException e) {
             mConnected = false;//if the try failed, you can check the exception here
+            Log.e( "DEBUG", "Cannot establish connection", e );
         }
         return null;
     }
