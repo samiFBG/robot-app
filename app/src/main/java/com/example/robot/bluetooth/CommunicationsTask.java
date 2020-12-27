@@ -34,7 +34,7 @@ public class CommunicationsTask extends AsyncTask<Void, Void, Void> {
 
     private static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    CommunicationsTask(AppCompatActivity activity, String address) {
+    public CommunicationsTask(AppCompatActivity activity, String address) {
         mCurrentActivity = activity;
         mAddress =  address;
     }

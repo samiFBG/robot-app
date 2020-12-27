@@ -1,11 +1,11 @@
-package com.example.robot;
+package com.example.robot.bluetooth;
 
 
-import com.example.robot.bluetooth.DeviceListActivity;
-import com.example.robot.bluetooth.CommunicationsTask;
+import com.example.robot.R;
+
 
 import android.content.Intent;
-import android.content.IntentFilter;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
@@ -13,11 +13,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivityB extends AppCompatActivity {
 
     private String mDeviceAddress;
     protected CommunicationsTask mBluetoothConnection;
@@ -37,9 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
+        Intent newint = getIntent();
+        mDeviceAddress = newint.getStringExtra(DeviceListActivity.EXTRA_ADDRESS);
+        mBluetoothConnection = new CommunicationsTask(this, mDeviceAddress);
+        mBluetoothConnection.execute();
 
-       pmgauche();
-       pmdroit();
+        pmgauche();
+        pmdroit();
 
     }
     public void pmdroit(){
@@ -63,28 +65,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-public void pmgauche(){
-    pmGauche = findViewById(R.id.pmgauche);
-    SeekBar mdgauche = findViewById(R.id.mgauche) ;
-    mdgauche.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            progresseGauche = progress;
-            pmGauche.setText( reverseGauche + progresseGauche);
-        }
+    public void pmgauche(){
+        pmGauche = findViewById(R.id.pmgauche);
+        SeekBar mdgauche = findViewById(R.id.mgauche) ;
+        mdgauche.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progresseGauche = progress;
+                pmGauche.setText( reverseGauche + progresseGauche);
+            }
 
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-        }
+            }
 
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
-        }
+            }
 
-    });
-}
+        });
+    }
     public  void revgauche(View v){
         if (countrevGauche == 0){
             countrevGauche = 1;

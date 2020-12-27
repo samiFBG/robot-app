@@ -90,7 +90,7 @@ public class DeviceListActivity extends AppCompatActivity {
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
             // Make an intent to start next activity.
-            Intent i = new Intent(DeviceListActivity.this, CommunicationsTask.class);
+            Intent i = new Intent(DeviceListActivity.this, MainActivityB.class);
             //Change the activity.
             i.putExtra(EXTRA_ADDRESS, address); //this will be received at CommunicationsActivity
             startActivity(i);
