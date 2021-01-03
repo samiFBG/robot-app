@@ -28,6 +28,7 @@ import com.example.robot.R;
 import java.util.ArrayList;
 import java.util.Set;
 
+import com.example.robot.MainActivty;
 public class DeviceListActivity extends AppCompatActivity {
 
     ListView mDeviceList;
@@ -90,7 +91,7 @@ public class DeviceListActivity extends AppCompatActivity {
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
             // Make an intent to start next activity.
-            Intent i = new Intent(DeviceListActivity.this, MainActivityB.class);
+            Intent i = new Intent(DeviceListActivity.this, MainActivty.class);
             //Change the activity.
             i.putExtra(EXTRA_ADDRESS, address); //this will be received at CommunicationsActivity
             startActivity(i);
